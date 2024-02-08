@@ -1,5 +1,7 @@
 package com.boardcamp.api.models;
 
+import com.boardcamp.api.dtos.CustomersDTO;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,5 +28,10 @@ public class CustomersModel {
     
     @Column(nullable = false, unique = true)
     private String cpf;
+
+    public CustomersModel(CustomersDTO dto){
+        this.name = dto.getName();
+        this.cpf = dto.getCpf();
+    }
 
 }
