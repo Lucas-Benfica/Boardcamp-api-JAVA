@@ -35,7 +35,7 @@ public class CustomersController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<CustomersModel> getCustomerByid(@PathVariable Long id) {
+    public ResponseEntity<CustomersModel> getCustomerById(@PathVariable Long id) {
         CustomersModel customer = customersService.findCustomerById(id);
         return ResponseEntity.status(HttpStatus.OK).body(customer);
     }
