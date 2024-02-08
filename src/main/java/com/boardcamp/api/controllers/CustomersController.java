@@ -14,7 +14,8 @@ import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -32,6 +33,11 @@ public class CustomersController {
         CustomersModel customer = customersService.save(body);
         return ResponseEntity.status(HttpStatus.CREATED).body(customer);
     }
-    
 
+    @GetMapping("/{id}")
+    public ResponseEntity<CustomersModel> getCustomerByid(@PathVariable Long id) {
+        CustomersModel customer = customersService.findCustomerById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(customer);
+    }
+    
 }
