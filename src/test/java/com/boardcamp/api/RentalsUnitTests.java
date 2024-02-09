@@ -18,7 +18,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.boardcamp.api.dtos.CustomersDTO;
 import com.boardcamp.api.dtos.GamesDTO;
 import com.boardcamp.api.dtos.RentalsDTO;
-import com.boardcamp.api.exceptions.CpfConflictException;
 import com.boardcamp.api.exceptions.CustomerNotFoundException;
 import com.boardcamp.api.exceptions.GameNotFoundException;
 import com.boardcamp.api.models.CustomersModel;
