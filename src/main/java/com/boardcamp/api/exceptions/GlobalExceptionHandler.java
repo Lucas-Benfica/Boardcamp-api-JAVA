@@ -18,14 +18,19 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.CONFLICT).body(exception.getMessage());
     }
 
-    @ExceptionHandler({ CustomerNotFound.class })
-    public ResponseEntity<String> handleCustomerNotFound(CustomerNotFound exception){
+    @ExceptionHandler({ CustomerNotFoundException.class })
+    public ResponseEntity<String> handleCustomerNotFound(CustomerNotFoundException exception){
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
     }
 
-    @ExceptionHandler({ GameNotFound.class })
-    public ResponseEntity<String> handleGameNotFound(GameNotFound exception){
+    @ExceptionHandler({ GameNotFoundException.class })
+    public ResponseEntity<String> handleGameNotFound(GameNotFoundException exception){
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
+    }
+
+    @ExceptionHandler({ NoStockException.class })
+    public ResponseEntity<String> handleNoStock(NoStockException exception){
+        return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(exception.getMessage());
     }
 
 }

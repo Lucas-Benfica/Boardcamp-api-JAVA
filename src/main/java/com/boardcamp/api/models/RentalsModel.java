@@ -2,6 +2,8 @@ package com.boardcamp.api.models;
 
 import java.time.LocalDate;
 
+import com.boardcamp.api.dtos.RentalsDTO;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -47,5 +49,15 @@ public class RentalsModel {
     
     @Column(nullable = false)
     private Long delayFee;
+
+    public RentalsModel(RentalsDTO dto, CustomersModel customer, GamesModel game){
+        this.customer = customer;
+        this.game = game;
+        this.rentDate = LocalDate.now();
+        this.daysRented = dto.getDaysRented();
+        this.returnDate = null;
+        this.originalPrice = game.getPricePerDay() * dto.getDaysRented();
+        this.delayFee = 0L;
+    }
     
 }
