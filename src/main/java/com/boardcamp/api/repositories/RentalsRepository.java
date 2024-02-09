@@ -17,4 +17,3 @@ public interface RentalsRepository extends JpaRepository<RentalsModel, Long> {
     List<RentalsModel> findAllByGameId(@Param("gameId") Long gameId);
     
 }
-//List<RentalsModel> findAllByGameId(Long gameId);
