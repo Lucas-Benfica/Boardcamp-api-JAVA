@@ -20,9 +20,9 @@ public class CustomersService {
     public CustomersModel save(CustomersDTO body){
         boolean cpfExists = customersRepository.existsByCpf(body.getCpf());
         
-        CustomersModel customer = new CustomersModel(body);
-
         if(cpfExists) throw new CpfConflictException("This CPF already registered.");
+        
+        CustomersModel customer = new CustomersModel(body);
 
         return customersRepository.save(customer);
     }
