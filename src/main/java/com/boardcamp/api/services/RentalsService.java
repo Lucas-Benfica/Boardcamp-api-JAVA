@@ -52,4 +52,7 @@ public class RentalsService {
         return rentalsRepository.save(rental);
     }
 
+    public List<RentalsModel> findAll(){
+        return rentalsRepository.findAll();
+    }
 }
